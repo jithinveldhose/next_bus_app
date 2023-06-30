@@ -1,6 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import 'otp.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,14 +22,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: screenSize.height * 0.1,
               ),
               Image.asset(
-                'assets/images/loginbanner.png',
+                'assets/images/login.png',
                 width: screenSize.width * 0.9,
               ),
               SizedBox(height: screenSize.height * 0.07),
               Container(
-                height: screenSize.height * 0.05,
-                margin: EdgeInsets.symmetric(horizontal: screenSize.width * 0.15),
-                child:const TextField(
+                height: screenSize.height * 0.07,
+                margin:
+                    EdgeInsets.symmetric(horizontal: screenSize.width * 0.15),
+                child: const TextField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: 'Enter Mobile No',
@@ -53,14 +53,23 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: screenSize.height * 0.02),
               SizedBox(
-                height: screenSize.height * 0.05,
+                height: screenSize.height * 0.07,
                 width: screenSize.width * 0.7,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const OtpScreen()),
+                  onPressed: () async {
+                    await FirebaseAuth.instance.verifyPhoneNumber(
+                      phoneNumber: '+44 7123 123 456',
+                      verificationCompleted:
+                          (PhoneAuthCredential credential) {},
+                      verificationFailed: (FirebaseAuthException e) {},
+                      codeSent: (String verificationId, int? resendToken) {},
+                      codeAutoRetrievalTimeout: (String verificationId) {},
                     );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const OtpScreen()),
+                    // );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFF5F1F),
@@ -82,13 +91,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         left: screenSize.width * 0.2,
                         right: screenSize.width * 0.03,
                       ),
-                      child: Divider(
+                      child: const Divider(
                         color: Color(0xFFFFFAF8F),
                         height: 10,
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     "OR",
                     style: TextStyle(color: Color(0xFFFEB4335)),
                   ),
@@ -98,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         left: screenSize.width * 0.03,
                         right: screenSize.width * 0.2,
                       ),
-                      child: Divider(
+                      child: const Divider(
                         color: Color(0xFFFFFAF8F),
                         height: 10,
                       ),
@@ -116,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(
                     fontSize: screenSize.height * 0.02,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFFF000000),
+                    color: const Color(0xfff000000),
                   ),
                 ),
               ),
@@ -125,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               CircleAvatar(
                 radius: screenSize.height * 0.015,
-                backgroundImage: AssetImage('assets/images/googlelogo.png'),
+                backgroundImage: const AssetImage('assets/images/googles.png'),
               ),
             ],
           ),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "993403330191",
+    "project_id": "next-bus-app",
+    "storage_bucket": "next-bus-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993403330191:android:7eb34439723826c66f1afa",
+        "android_client_info": {
+          "package_name": "com.example.next_bus_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "993403330191-789sqnsiq6ti2jdqf0bsumo0d77vhodn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaiC-MuCCV6MlfCsdaE8tKND8pSpO_auM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "993403330191-789sqnsiq6ti2jdqf0bsumo0d77vhodn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
